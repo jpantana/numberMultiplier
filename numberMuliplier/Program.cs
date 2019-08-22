@@ -11,24 +11,38 @@ namespace numberMuliplier
 
             var newNums = numbersList.Split(",");
 
-            int sum = 1;
+            Console.WriteLine("Do you want to multiply or square the numbers? Door '1' or '2'(press the number and return key)?");
+            var UserInput = Console.ReadLine();
 
-            foreach (string num in newNums)
+            Console.WriteLine(" You entered: " + UserInput);
+
+            if (UserInput == "1")
             {
-                Console.WriteLine(num);
+                int sum = 1;
 
-                var intNum = int.Parse(num);
-                sum += sum * intNum;
-                Console.WriteLine(sum);
+                foreach (string num in newNums)
+                {
+
+                    var intNum = int.Parse(num);
+                    sum = sum * intNum;
+                }
+                Console.WriteLine("The Sum total of each number multiplied is " + sum);
             }
-            Console.WriteLine(sum);
+            else if (UserInput == "2")
+            {
+                List<int> newList = new List<int>();
 
-            List<int> NumList = new List<int>();
-            NumList.Add(1);
-            NumList.Add(2);
-            NumList.Add(3);
-            NumList.Add(4);
-            NumList.Add(5);
+                foreach (string num in newNums)
+                {
+                    var intNum = int.Parse(num);
+
+                    var sum = intNum * intNum;
+
+                    newList.Add(sum);
+                }
+
+                newList.ForEach(Console.WriteLine);
+            }
         }
     }
 }
