@@ -7,11 +7,12 @@ namespace numberMuliplier
     {
         static void Main(string[] args)
         {
-            var numbersList = "1,2,3,4,5";
+            Console.WriteLine("enter some numbers seperated by only commas");
+            var numbersList = Console.ReadLine();
 
             var newNums = numbersList.Split(",");
 
-            Console.WriteLine("Do you want to multiply or square the numbers? Door '1' or '2'(press the number and return key)?");
+            Console.WriteLine("Do you want to multiply or square the numbers? Press '1' or '2' (then press enter)?");
             var UserInput = Console.ReadLine();
 
             Console.WriteLine(" You entered: " + UserInput);
@@ -22,7 +23,6 @@ namespace numberMuliplier
 
                 foreach (string num in newNums)
                 {
-
                     var intNum = int.Parse(num);
                     sum = sum * intNum;
                 }
@@ -30,18 +30,17 @@ namespace numberMuliplier
             }
             else if (UserInput == "2")
             {
-                List<int> newList = new List<int>();
-
+                List<string> newList = new List<string>();
                 foreach (string num in newNums)
                 {
                     var intNum = int.Parse(num);
-
                     var sum = intNum * intNum;
+                    string stngNum = sum.ToString();
 
-                    newList.Add(sum);
+                    newList.Add(stngNum);
+                    newList.Add(",");
                 }
-
-                newList.ForEach(Console.WriteLine);
+                newList.ForEach(Console.Write);
             }
         }
     }
